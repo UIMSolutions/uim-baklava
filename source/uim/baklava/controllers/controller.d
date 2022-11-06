@@ -156,7 +156,7 @@ class DBKLController : DBKLBase, IBKLController  {
 }
 mixin(BKLControllerCalls!("BKLController", "DBKLController"));
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   testBKLController(BKLController, "BKLController");
 
   assert(BKLController.name == "BKLController");

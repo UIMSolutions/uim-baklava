@@ -114,7 +114,7 @@ class DBKLBase : IBKLBase {
 }
 auto BKLBase() { return new DBKLBase; }
 
-version(test_uim_mvc) unittest {
+version(test_baklava) unittest {
   assert(BKLBase);
   assert(BKLBase.name("testName").name == "testName");
 

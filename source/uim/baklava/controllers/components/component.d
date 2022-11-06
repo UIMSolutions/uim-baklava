@@ -14,7 +14,7 @@ class DBKLControllerComponent : DBKLBase, IBKLControllerComponent {
 }
 mixin(BKLControllerComponentCalls!("BKLControllerComponent", "DBKLControllerComponent"));
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   testBKLControllerComponent(BKLControllerComponent, "BKLControllerComponent");
 
   assert(BKLControllerComponent.name == "BKLControllerComponent");

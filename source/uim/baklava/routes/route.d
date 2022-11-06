@@ -20,7 +20,7 @@ class DBKLRoute : DBKLBase, IBKLRoute {
 auto BKLRoute() { return new DBKLRoute; }
 auto BKLRoute(string aPath, HTTPMethod aMethod, DBKLController aController) { return new DBKLRoute(aPath, aMethod, aController); }
 
-version(test_uim_mvc) { unittest { 
+version(test_baklava) { unittest { 
   assert(BKLRoute);
   assert(BKLRoute("testPath", HTTPMethod.GET, BKLController));
   assert(BKLRoute("testPath", HTTPMethod.GET, BKLActionController));

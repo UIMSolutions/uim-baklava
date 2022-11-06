@@ -91,7 +91,7 @@ class DBKLApplication : DBKLBase, IBKLApplication {
 }
 auto BKLApplication() { return new DBKLApplication; }
 
-version(test_uim_mvc) unittest {
+version(test_baklava) unittest {
   assert(
     BKLApplication
       .addRoute(BKLRoute("ecm/index", HTTPMethod.GET, BKLPageController))

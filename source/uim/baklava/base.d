@@ -57,7 +57,7 @@ class DBKLBase : IBKLBase {
   }
 // End Parameters ----
 
-// #region error handling
+  // #region error handling
     string _error;
     string error() { return _error; }
     O error(this O)(string newError) {
@@ -83,10 +83,11 @@ class DBKLBase : IBKLBase {
     return result.fromJson(this.toJson);
   }
 
+  // Import data using Json
   O fromJson(this O)(Json values) {
-    if (values != Json(null)) {
-    
+    if (values != Json(null)) {    
       foreach (keyvalue; values.byKeyValue) {
+        // TODO Data validation
         this.parameter(
           keyvalue.key,
           keyvalue.value.get!string

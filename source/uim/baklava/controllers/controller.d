@@ -78,8 +78,11 @@ class DBKLController : DBKLBase, IBKLController  {
     return json;
   }
 
+  // Reading parameters from request 
   auto requestParameters(string[string] defaultValues = null) {
     string[string] result = defaultValues.dup; 
+
+    // TODO Data validation
     this
       .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
       .stringRequest(this.request.toString)

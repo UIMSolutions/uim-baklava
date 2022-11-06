@@ -37,23 +37,17 @@ class DBKLPageController : DBKLController {
   override void beforeResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DBKLPageController~":DBKLPageController("~this.name~")::beforeResponse");
     super.beforeResponse(options);
-  }    
 
-  override string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBKLController~":DBKLController::stringResponse");
-    super.stringResponse(options);
-
-    string result;
-    if (view) result = view.render(options);
+    if (view) myResponse = view.render(options);
     if (auto myLayout = this.layout) {
-      result = myLayout.render(this, result);  
+      myResponse = myLayout.render(this, result);  
     }
     else {
-      result = this.application && this.application.layout ? this.application.layout.render(this, result) : result;  
+      myResponse = this.application && this.application.layout 
+        ? this.application.layout.render(this, result) 
+        : result;  
     }
-
-    return result;
-  }
+  }    
 
   override void afterResponse(STRINGAA options = null) {
     debugMethodCall(moduleName!DBKLPageController~":DBKLPageController::afterResponse");

@@ -16,7 +16,7 @@ auto BKLModelRegistry() {
   DBKLModelRegistry.registry;
 }
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   assert(BKLModelRegistry.register("mvc/model",  BKLModel).paths == ["mvc/model"]);
   assert(BKLModelRegistry.register("mvc/model2", BKLModel).paths.length == 2);
 }}

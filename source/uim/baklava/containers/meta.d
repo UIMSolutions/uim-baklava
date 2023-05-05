@@ -3,6 +3,7 @@ module uim.baklava.containers.metas;
 @safe:
 import uim.baklava;
 
+// Container for meta data
 class DBKLMetaContainer : DBKLH5Container {
 	O entries(this O)(STRINGAA[] newEntries) { 
     this.entries(newEntries.map!(a => H5Meta(a)).array); 
@@ -24,22 +25,21 @@ auto BKLMetaContainer() { return new DBKLMetaContainer; }
 version(test_uim_BKLs) { unittest {
     writeln("--- Test in ", __MODULE__, "/", __LINE__);
     
-/*     assert(new DBKLLinkContainer);
-    assert(BKLLinkContainer);
-    assert(cast(DBKLLinkContainer)BKLLinkContainer);
-    assert(!BKLLinkContainer.entries);
-    assert(BKLLinkContainer.entries.add("abc").entries);
+/*     assert(new DBKLMetaContainer);
+    assert(BKLMetaContainer);
+    assert(!BKLMetaContainer.entries);
+    assert(BKLMetaContainer.entries.add("abc").entries);
 
-    assert(BKLLinkContainer.entries.add("abc").entries.length == 1);
-    assert(BKLLinkContainer.entries.add(["src":"abc"]).entries.length == 1);
-    assert(BKLLinkContainer.entries.add(H5Meta).entries.length == 1);
+    assert(BKLMetaContainer.entries.add("abc").entries.length == 1);
+    assert(BKLMetaContainer.entries.add(["src":"abc"]).entries.length == 1);
+    assert(BKLMetaContainer.entries.add(H5Meta).entries.length == 1);
 
-    assert(BKLLinkContainer.entries.add("abc", "xyz").entries.length == 2);
-    assert(BKLLinkContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
-    assert(BKLLinkContainer.entries.add(H5Meta, H5Meta).entries.length == 2);
+    assert(BKLMetaContainer.entries.add("abc", "xyz").entries.length == 2);
+    assert(BKLMetaContainer.entries.add(["src":"abc"], ["src":"xyz"]).entries.length == 2);
+    assert(BKLMetaContainer.entries.add(H5Meta, H5Meta).entries.length == 2);
 
-    assert(BKLLinkContainer.entries.add(["abc", "xyz"]).entries.length == 2);
-    assert(BKLLinkContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
-    assert(BKLLinkContainer.entries.add([H5Meta, H5Meta]).entries.length == 2); */
+    assert(BKLMetaContainer.entries.add(["abc", "xyz"]).entries.length == 2);
+    assert(BKLMetaContainer.entries.add([["src":"abc"], ["src":"xyz"]]).entries.length == 2);
+    assert(BKLMetaContainer.entries.add([H5Meta, H5Meta]).entries.length == 2); */
   }
 }

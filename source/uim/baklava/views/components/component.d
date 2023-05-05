@@ -49,7 +49,7 @@ class DBKLViewComponent : DBKLBase, IBKLViewComponent {
 }
 mixin(BKLViewComponentCalls!("BKLViewComponent", "DBKLViewComponent"));
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   testBKLViewComponent(BKLViewComponent, "BKLViewComponent");
 
   assert(BKLViewComponent.name == "BKLViewComponent");

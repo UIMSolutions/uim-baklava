@@ -15,12 +15,12 @@ class DBKLController : DBKLBase, IBKLController  {
       .name("BKLController"); 
   }
   
-  mixin(BKLParameter!("mimetype")); 
-  mixin(BKLParameter!("rootPath")); 
-  mixin(BKLParameter!("collectionName"));
+  mixin(BKLParameter!("mimetype")); // Mimetype of the response
+  mixin(BKLParameter!("rootPath")); // Root Path in responses 
+  mixin(BKLParameter!("collectionName")); 
   mixin(BKLParameter!("entitiesName")); 
-	mixin(BKLParameter!("language"));
-  mixin(BKLParameter!("responseResult"));
+	mixin(BKLParameter!("language")); // Language for response
+  mixin(BKLParameter!("responseResult")); 
 
   mixin(BKLParameter!("httpMode"));
   mixin(BKLParameter!("stringRequest"));
@@ -78,8 +78,11 @@ class DBKLController : DBKLBase, IBKLController  {
     return json;
   }
 
+  // Reading parameters from request 
   auto requestParameters(string[string] defaultValues = null) {
     string[string] result = defaultValues.dup; 
+
+    // TODO Data validation
     this
       .httpMode((this.request.fullURL.toString.indexOf("https") == 0 ? "https" : "http"))
       .stringRequest(this.request.toString)
@@ -108,27 +111,29 @@ class DBKLController : DBKLBase, IBKLController  {
     return result;
   }
 
+  // #region Response
+  protected string myResponse; // Resulting response 
   void beforeResponse(string[string] options = null) {
     debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::beforeResponse");
+
+    myResponse = "";
   }    
 
   void afterResponse(string[string] options = null) {
     debugMethodCall(moduleName!DBKLController~":DBKLController::afterResponse");
   }
+  // #endregion Response
 
-  string stringResponse(string[string] options = null) {
-    debugMethodCall(moduleName!DBKLController~":DBKLController::stringResponse");
-    return "";
+  void request(HTTPServerRequest newHttpRequest, HTTPServerResponse newHttpResponse) {
+	  debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::request(req, res)");
+   
+    request(newHttpRequest, newHttpResponse, options) {
   }
 
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse) {
-		debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::request(req, res)");
-  }
-
-  void request(HTTPServerRequest newRequest, HTTPServerResponse newResponse, STRINGAA options) {
+  void request(HTTPServerRequest newHttpRequest, HTTPServerResponse newHttpResponse, STRINGAA options) {
 		debugMethodCall(moduleName!DBKLController~":DBKLController("~this.name~")::request(req, res, reqParameters)");
 
-		this.request = newRequest; this.response = newResponse;
+		this.request = newHttpRequest; this.response = newHttpResponse;
     options = requestParameters(options);
 		beforeResponse(options);
 
@@ -144,15 +149,14 @@ class DBKLController : DBKLBase, IBKLController  {
       newResponse.redirect(redirect);
     } 
 
-    auto result = stringResponse(options);
     afterResponse(options);
     
-		this.response.writeBody(result, this.mimetype); 
+		this.response.writeBody(myResponse, this.mimetype); 
   }
 }
 mixin(BKLControllerCalls!("BKLController", "DBKLController"));
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   testBKLController(BKLController, "BKLController");
 
   assert(BKLController.name == "BKLController");

@@ -48,7 +48,7 @@ class DBKLView : DBKLBase, IBKLView {
 }
 mixin(BKLViewCalls!("BKLView", "DBKLView"));
 
-version(test_uim_mvc) { unittest { 
+version(test_baklava) { unittest { 
   testBKLView(BKLView, "BKLView");
 
   assert(BKLView.name == "BKLView");

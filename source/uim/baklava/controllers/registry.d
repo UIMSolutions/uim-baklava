@@ -16,7 +16,7 @@ auto BKLControllerRegistry() {
     DBKLControllerRegistry.registry;
 }
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   assert(BKLControllerRegistry.register("mvc/controllercomponent",  BKLController).paths == ["mvc/controllercomponent"]);
   assert(BKLControllerRegistry.register("mvc/controllercomponent2", BKLController).paths.length == 2);
 }}

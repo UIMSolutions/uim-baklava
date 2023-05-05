@@ -12,7 +12,7 @@ class DBKLModel : DBKLBase, IBKLModel {
 }
 mixin(BKLModelCalls!("BKLModel", "DBKLModel"));
 
-version(test_uim_mvc) { unittest { 
+version(test_baklava) { unittest { 
   assert(BKLModel);
   assert(BKLModel.name == "BKLModel");
 }} 

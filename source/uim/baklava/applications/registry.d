@@ -16,7 +16,7 @@ auto BKLApplicationRegistry() {
     DBKLApplicationRegistry.registry;
 }
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   assert(BKLApplicationRegistry.register("mvc/test",  BKLApplication).paths == ["mvc/test"]);
   assert(BKLApplicationRegistry.register("mvc/test2", BKLApplication).paths.length == 2);
 }}

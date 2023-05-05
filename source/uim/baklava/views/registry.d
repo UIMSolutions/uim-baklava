@@ -16,7 +16,7 @@ auto BKLViewRegistry() {
   DBKLViewRegistry.registry;
 }
 
-version(test_uim_mvc) { unittest {
+version(test_baklava) { unittest {
   assert(BKLViewRegistry.register("mvc/view",  BKLView).paths == ["mvc/view"]);
   assert(BKLViewRegistry.register("mvc/view2", BKLView).paths.length == 2);
 }}

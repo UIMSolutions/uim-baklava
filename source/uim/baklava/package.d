@@ -57,7 +57,7 @@ public import vibe.d;
 // UIM
 public import uim.core;
 public import uim.bootstrap;
-public import uim.javascript;
+public import langs.javascript;
 public import uim.html;
 public import uim.oop;
 public import uim.controls;

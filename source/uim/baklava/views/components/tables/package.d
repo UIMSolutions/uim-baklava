@@ -10,10 +10,12 @@ public import uim.baklava.views.components.tables.table;
 public import uim.baklava.views.components.tables.components;
 
 // Modules
-public import uim.baklava.views.components.tables.filter;
-public import uim.baklava.views.components.tables.history;
-public import uim.baklava.views.components.tables.listheader;
-public import uim.baklava.views.components.tables.versions;
+public {
+  import uim.baklava.views.components.tables.filter;
+  import uim.baklava.views.components.tables.history;
+  import uim.baklava.views.components.tables.listheader;
+  import uim.baklava.views.components.tables.versions;
+}
 
 auto listEntities(T:DOOPEntity)(string rootPath, string mainTitle, int numberEntities, STRINGAA[] columns, T[] entities, int startPos, int endPos, size_t sumEntities) {
   auto header(string rootPath, STRINGAA[] columns) {

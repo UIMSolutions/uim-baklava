@@ -7,11 +7,13 @@ import uim.baklava;
 public import uim.baklava.views.components.forms.components.contents.content;
 
 // Modules
-public import uim.baklava.views.components.forms.components.contents.entity;
-public import uim.baklava.views.components.forms.components.contents.entities;
-public import uim.baklava.views.components.forms.components.contents.cards;
-public import uim.baklava.views.components.forms.components.contents.list;
-public import uim.baklava.views.components.forms.components.contents.table;
+public {
+  import uim.baklava.views.components.forms.components.contents.entity;
+  import uim.baklava.views.components.forms.components.contents.entities;
+  import uim.baklava.views.components.forms.components.contents.cards;
+  import uim.baklava.views.components.forms.components.contents.list;
+  import uim.baklava.views.components.forms.components.contents.table;
+}
 
 // Tests
 public import uim.baklava.views.components.forms.components.contents.tests;

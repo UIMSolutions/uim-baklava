@@ -1,12 +1,15 @@
 module uim.baklava;
 
 // Phobos
-public import std.algorithm; 
-public import std.range; 
-public import std.range.primitives; 
-public import std.range.interfaces; 
-public import std.base64;
-public import std.csv;
+public {
+  import std.algorithm; 
+  import std.range; 
+  import std.range.primitives; 
+  import std.range.interfaces; 
+  import std.base64;
+  import std.csv;
+}
+
 // public import std.json;
 public import std.zip; // Read/write data in the ZIP archive format.
 public import std.zlib;

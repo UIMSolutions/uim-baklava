@@ -11,8 +11,10 @@ public import uim.baklava.views.components.forms.crud.entity;
 public import uim.baklava.views.components.forms.crud.entities;
 
 // Modules
-public import uim.baklava.views.components.forms.crud.create;
-public import uim.baklava.views.components.forms.crud.read;
-public import uim.baklava.views.components.forms.crud.update;
-public import uim.baklava.views.components.forms.crud.delete_;
-public import uim.baklava.views.components.forms.crud.list;
+public {
+  import uim.baklava.views.components.forms.crud.create;
+  import uim.baklava.views.components.forms.crud.read;
+  import uim.baklava.views.components.forms.crud.update;
+  import uim.baklava.views.components.forms.crud.delete_;
+  import uim.baklava.views.components.forms.crud.list;
+}

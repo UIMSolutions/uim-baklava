@@ -1,12 +1,14 @@
 module uim.baklava.mixins;
 
-public import uim.baklava.mixins.base;
-public import uim.baklava.mixins.layout;
-public import uim.baklava.mixins.model;
-public import uim.baklava.mixins.view;
-public import uim.baklava.mixins.viewcomponent;
-public import uim.baklava.mixins.controller;
-public import uim.baklava.mixins.controllercomponent;
+public {
+  import uim.baklava.mixins.base;
+  import uim.baklava.mixins.layout;
+  import uim.baklava.mixins.model;
+  import uim.baklava.mixins.view;
+  import uim.baklava.mixins.viewcomponent;
+  import uim.baklava.mixins.controller;
+  import uim.baklava.mixins.controllercomponent;
+}
 
 template BKLParameter(string name) {
   const char[] BKLParameter = `
